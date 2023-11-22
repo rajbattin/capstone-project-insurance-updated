@@ -11,5 +11,10 @@
   - name: start docker service
     command: sudo systemctl start docker
 
+    
+
   - name: deploy insureme application
+
+    command: sudo docker stop $(docker ps -aq)
+    command: sudo docker rm $(docker ps -aq)
     command: sudo docker run -itd -p 8082:8081 --name insure-me2 rajbattin15/insure-me:1.0
